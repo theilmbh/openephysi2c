@@ -1,0 +1,239 @@
+FrontPanel 5.0.1 Release Notes
+==============================
+
+Supported platforms
+-------------------
+
+The configurations below represent the current build targets for the API,
+samples, and applications in this release. Many similar configurations 
+are known to work (e.g. Linux Debian, etc) but these are the official
+distribution targets.
+
+Windows
+   + Windows 7, 8, 10 (x32 / x64)
+   + Python 2.7, Python 3.6
+   + Java, C#
+
+Mac OS X (10.10)
+   + SDK 10.10
+   + Python 2.7.2, Ruby 1.8.7, Java 1.6.0
+
+Linux (CentOS 6.5 x32 / x64)
+   + Linux 2.6.32-431
+   + gcc 4.4.7
+   + Python 2.6.6, Ruby 1.8.7, Java 1.7.0
+
+Linux (Ubuntu 12.04 LTS x32 / x64)
+   + Final FrontPanel release supporting Ubuntu 12.04
+   + Linux 3.5.3-1
+   + gcc 4.7.0
+   + Python 2.7.2, Ruby 1.8.7, Java
+
+Linux (Ubuntu 16.04 LTS x32 / x64)
+   + Final Linux distribution with 32-bit CPU support for FrontPanel
+   + Linux 4.13.0-38
+   + gcc 5.4.0
+   + Python 2.7.12, Python 3.5.2, Ruby 2.3.1, Java 8
+
+
+Changes since the previous versions
+-----------------------------------
+New Features:
++ Firmware updates now supported under Mac OS X.
++ A Doxygen tag file and HTML documentation are now included for all platforms.
+
+Bugfixes:
++ Resolved a bug that resulted in a crash during firmware updates.
+
+
+
+Release Notes for Previous Versions
+===================================
+
+   FrontPanel 5.0.0 (2018-05-04)
+   ----------------
+	+ Addition of FPoIP allowing to use remote FrontPanel devices.
+	+ okCFrontPanelDevices can be used for enumerating and opening the devices.
+	+ okCFrontPanelManager can be used to be notified about devices connections
+	  and disconnections dynamically.
+	+ Add okCFrontPanel::GetLastErrorMessage() function.
+	+ Add functions returning FrontPanel version.
+	+ Support for using system proxy settings when retrieving firmware updates.
+	+ Firmware updates are currently only supported on Windows
+	+ Added support for XEM7320
+	+ Added support for XEM7305
+
+   FrontPanel 4.5.6 (2016-11-11)
+   ----------------
+   + Windows Python version 3.5 updates
+   + Added support for XEM7010, XEM7310, and ZEM5310
+   + Add "chunksize" parameter to okFilePipe component
+   + Fix some Java and C# wrapper memory management issues
+   + Add "okSetWireIn" and "okActivateTriggerIn" FrontPanel XML components
+   + New Vivado sources for Kintex 7 boards (XEM7350/XEM7360).
+     We recommend using these encrypted sources in Vivado when possible as
+     support for using ISE NGC files in Vivado is not guaranteed.
+   + FrontPanel GUI performance improvements.
+   + FrontPanel firmware updates through Pins.
+   + Windows XP is not supported.
+   + Added okFrontPanelDLL_TryLoadLib to allow graceful degradation of 
+     software without FrontPanel DLL.
+
+
+   FrontPanel 4.5.5 (2016-03-21)
+   ----------------
+   + Added support for XEM7001, ZEM5305, XEM7360 devices.
+   + Sounds update to use compatible files between Windows and Mac OS X.
+   + Improve device settings load time on USB 3.0 devices.
+   + Update configuration file dialog to include *.rbf for Altera files.
+   + Improvements to FrontPanelManager.
+   + XEM7350 HDL updated to fix defect with block throttled pipes.
+   + ZEM4310 okLibrary.vhd updated.
+      
+   
+   FrontPanel 4.5.0 (2015-03-14)
+   ----------------
+   + Added Device Settings dialog for supported devices.
+   + Fixed a defect with the Flash programming dialog that was not erasing
+     enough sectors for the programming operation.
+   + Fixed a defect with the Flash programming dialog that prevented proper
+     boot configuration of Kintex-7 devices (XEM7350).
+   + okTDeviceInfo::productID type changed from okEProduct to int.
+
+
+
+Licenses
+========
+Sounds included with this software are licensed under the Creative Commons
+license and available from http://www.freesound.org.
+
+
+
+FrontPanel 4.4.x Releases
+=========================
+The configurations below represent the current build targets for the API,
+samples, and applications in this release. Many similar configurations 
+are known to work (e.g. Linux Ubuntu, etc) but these are the official
+distribution targets.
+
+Windows
+   + Windows 7, 8 (x32 / x64)
+   + Python 2.7.3, Python 3.2.3, Java, C#
+
+Mac OS X (10.8)
+   + SDK 10.8
+   + Python 2.7.2, Ruby 1.8.7, Java 1.6.0
+
+Linux (CentOS 6.5 x32 / x64)
+   + Linux 2.6.32-431
+   + gcc 4.4.7
+   + Python 2.6.6, Ruby 1.8.7, Java 1.7.0
+
+Linux (Ubuntu 12.04 LTS x32 / x64)
+   + Linux 3.5.3-1
+   + gcc 4.7.0
+   + Python 2.7.2, Ruby 1.8.7, Java
+
+
+   FrontPanel 4.4.2 (2014-09-15)
+   ----------------
+   + Add support for XEM7350-K410T
+   + Fix for undefined symbols in Linux library.
+   + Minor updates to Linux / Mac sample Makefiles.
+   
+   FrontPanel 4.4.1 (2014-06-19)
+   ----------------
+   + Fix udev_list_entry_get_by_name on Linux/Python.
+   + Fix issues loading Python 3.2 library under Windows
+   + Fix DeviceChange sample to use FrontPanel Manager API for device 
+     attach/detach detection.
+   + Fix for Linux and Mac C/C++ libraries with improper references that
+     would cause a segmentation fault.
+   + Fix formatting for the HTML API documentation.
+   + Fix misplaced files in the Windows installer.
+
+   FrontPanel 4.4.0 (2014-05-19)
+   ----------------
+   + API: Change FrontPanel DLL to an "import library". NOTE: This removes 
+     the requirement for okFrontPanelDLL.cpp in your projects and requires
+     you to link with okFrontPanel.lib (the import library). Please see the 
+     FrontPanel User's Manual and Samples README for additional guidance.
+   + API: Removed pipe transfer upper limit. The API will now automatically 
+     split a large transfer into multiple transfers as supported by the
+     firmware.
+   + FrontPanel GUI: New icons
+   + FrontPanel GUI: Support for Mac Retina displays
+   + FrontPanel GUI: Add FMC Peripheral IPMI information for XEM7350
+   + FrontPanel GUI: Add Flash programming feature
+   + FrontPanel GUI: Add XEM7350 sensors display
+   + FrontPanel GUI: Add reset profile editing
+
+
+
+FrontPanel 4.3.1 Release
+------------------------
++ Added XEM6310MT support
++ Added XEM6320 support
++ Added XEM7350 support
++ Added ZEM4310 support
++ Added DeviceSensors API
++ Added DeviceSettings API
++ Added FrontPanelManager API
++ Added DeviceInfo structure and API
++ Fix ResetProfile API for wrapped languages
++ Update Registers API for all languages
++ Performance improvements on Linux
++ Added USB 3.0 firmware update to FrontPanel
++ Improved settings access in FrontPanel
+
+The configurations below represent the current build targets for the API,
+samples, and applications in this release. Many similar configurations 
+are known to work (e.g. Linux Ubuntu, etc) but these are the official
+distribution targets.
+
+Windows
+   + Windows 7, 8 (x32 / x64)
+   + Python 2.7.3, Python 3.2.3, Java, C#
+
+Mac OS X (10.8)
+   + SDK 10.8
+   + Python 2.7.2, Ruby 1.8.7, Java 1.6.0
+
+Linux (CentOS 6.5 x32 / x64)
+   + Linux 2.6.32-431
+   + gcc 4.4.7
+   + Python 2.6.6, Ruby 1.8.7, Java 1.7.0
+
+Linux (Ubuntu 12.04 LTS x32 / x64)
+   + Linux 3.5.3-1
+   + gcc 4.7.0
+   + Python 2.7.2, Ruby 1.8.7, Java
+
+
+
+
+FrontPanel 4.3.0 Release
+------------------------
+The configurations below represent the current build targets for the API,
+samples, and applications in this release. Many similar configurations 
+are known to work (e.g. Linux Ubuntu, etc) but these are the official
+distribution targets.
+
+Windows
+   + Windows 7, 8 (x32 / x64)
+   + Python 2.7.3, Python 3.2.3, Java, C#
+
+Mac OS X (10.8)
+   + SDK 10.8
+   + Python 2.7.2, Ruby 1.8.7, Java 1.6.0
+
+Linux (CentOS 6.5 x32 / x64)
+   + Linux 2.6.32-431
+   + gcc 4.4.7
+   + Python 2.6.6, Ruby 1.8.7, Java 1.7.0
+
+Linux (FedoraCore 17 x32 / x64)
+   + Linux 3.5.3-1
+   + gcc 4.7.0
+   + Python 2.7.2, Ruby 1.8.7, Java
+
